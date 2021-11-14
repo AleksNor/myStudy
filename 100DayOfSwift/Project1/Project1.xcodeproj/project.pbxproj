@@ -46,6 +46,7 @@
 		26815454273CD18B000D9053 /* nssl0033.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nssl0033.jpeg; sourceTree = "<group>"; };
 		26815455273CD18B000D9053 /* nssl0091.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nssl0091.jpeg; sourceTree = "<group>"; };
 		268154A0273E22B1000D9053 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		268154E427411521000D9053 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +88,7 @@
 				26815442273CD0BD000D9053 /* LaunchScreen.storyboard */,
 				26815445273CD0BD000D9053 /* Info.plist */,
 				2681544B273CD18B000D9053 /* Content */,
+				268154E427411521000D9053 /* README.md */,
 			);
 			path = Project1;
 			sourceTree = "<group>";
