@@ -63,6 +63,7 @@
 		2681542B273CD0BC000D9053 = {
 			isa = PBXGroup;
 			children = (
+				268154E427411521000D9053 /* README.md */,
 				26815436273CD0BC000D9053 /* Project1 */,
 				26815435273CD0BC000D9053 /* Products */,
 			);
@@ -88,7 +89,6 @@
 				26815442273CD0BD000D9053 /* LaunchScreen.storyboard */,
 				26815445273CD0BD000D9053 /* Info.plist */,
 				2681544B273CD18B000D9053 /* Content */,
-				268154E427411521000D9053 /* README.md */,
 			);
 			path = Project1;
 			sourceTree = "<group>";
