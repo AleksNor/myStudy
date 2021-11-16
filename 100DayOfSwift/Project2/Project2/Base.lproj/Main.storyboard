@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,40 +15,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eA0-tc-3Ul">
-                                <rect key="frame" x="95" y="100" width="224" height="114"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="us"/>
-                                <connections>
-                                    <action selector="tappedButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hka-5X-fYw"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wde-Jf-Blk">
-                                <rect key="frame" x="95" y="230" width="224" height="114"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="us"/>
-                                <connections>
-                                    <action selector="tappedButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0gF-ja-Vig"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pPF-7M-fcM">
-                                <rect key="frame" x="95" y="360" width="224" height="114"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="us"/>
-                                <connections>
-                                    <action selector="tappedButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Scd-1s-knC"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="8qz-qw-DaC">
+                                <rect key="frame" x="95" y="175" width="224" height="402"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eA0-tc-3Ul">
+                                        <rect key="frame" x="0.0" y="0.0" width="224" height="114"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="us" title=""/>
+                                        <connections>
+                                            <action selector="tappedButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hka-5X-fYw"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wde-Jf-Blk">
+                                        <rect key="frame" x="0.0" y="144" width="224" height="114"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="us"/>
+                                        <connections>
+                                            <action selector="tappedButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0gF-ja-Vig"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pPF-7M-fcM">
+                                        <rect key="frame" x="0.0" y="288" width="224" height="114"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="us"/>
+                                        <connections>
+                                            <action selector="tappedButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Scd-1s-knC"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.97649937868118286" green="0.98846191167831421" blue="0.98459845781326294" alpha="0.96466266556291391" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="eA0-tc-3Ul" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="EB9-cx-Mre"/>
-                            <constraint firstItem="pPF-7M-fcM" firstAttribute="centerX" secondItem="Wde-Jf-Blk" secondAttribute="centerX" id="JZD-pq-xI1"/>
-                            <constraint firstItem="pPF-7M-fcM" firstAttribute="top" secondItem="Wde-Jf-Blk" secondAttribute="bottom" constant="16" id="Pdn-8Q-dPg"/>
-                            <constraint firstItem="Wde-Jf-Blk" firstAttribute="top" secondItem="eA0-tc-3Ul" secondAttribute="bottom" constant="16" id="ZJ5-Ww-qUb"/>
-                            <constraint firstItem="Wde-Jf-Blk" firstAttribute="centerX" secondItem="eA0-tc-3Ul" secondAttribute="centerX" id="dsK-Xd-Lfe"/>
-                            <constraint firstItem="eA0-tc-3Ul" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="zZS-mj-4Pn"/>
+                            <constraint firstItem="8qz-qw-DaC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="87" id="RdR-Zb-yhj"/>
+                            <constraint firstItem="8qz-qw-DaC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ee9-nV-xdI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Sm1-eL-2aX"/>
@@ -71,6 +71,12 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NW1-hE-ZhZ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -84,8 +90,5 @@
     </scenes>
     <resources>
         <image name="us" width="200" height="100"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

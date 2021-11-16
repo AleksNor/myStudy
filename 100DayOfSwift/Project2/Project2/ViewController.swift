@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     var countries = [String]()
     var score = 0
     var correctAnswer = 0
+    var round = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,29 +29,43 @@ class ViewController: UIViewController {
         button2.layer.borderWidth = 1
         button3.layer.borderWidth = 1
         
-        button1.layer.backgroundColor = UIColor(red: 0.93, green: 0.94, blue: 0.94, alpha: 1).cgColor
-        button2.layer.backgroundColor = UIColor(red: 0.93, green: 0.94, blue: 0.94, alpha: 1).cgColor
-        button3.layer.backgroundColor = UIColor(red: 0.93, green: 0.94, blue: 0.94, alpha: 1).cgColor
+        button1.layer.cornerRadius = 5
+        button2.layer.cornerRadius = 5
+        button3.layer.cornerRadius = 5
+        
+        button1.layer.backgroundColor = UIColor(red: 0, green: 0.4, blue: 0.5, alpha: 0.1).cgColor
+        button2.layer.backgroundColor = UIColor(red: 0, green: 0.4, blue: 0.5, alpha: 0.1).cgColor
+        button3.layer.backgroundColor = UIColor(red: 0, green: 0.4, blue: 0.5, alpha: 0.1).cgColor
     }
     
-    func askQuestion(action: UIAlertAction! = nil) {
+    private func askQuestion(action: UIAlertAction! = nil) {
         correctAnswer = Int.random(in: 0...2)
         countries.shuffle()
         button1.setImage(UIImage(named: countries[0]), for: .normal)
         button2.setImage(UIImage(named: countries[1]), for: .normal)
         button3.setImage(UIImage(named: countries[2]), for: .normal)
-        title = countries[correctAnswer].uppercased()
+        title = "\(countries[correctAnswer].uppercased())! Score: \(score)"
     }
 
     @IBAction func tappedButton(_ sender: UIButton) {
+        round += 1
         var title: String
         
         if correctAnswer == sender.tag {
-            title = "Correct"
+            title = "Correct!"
             score += 1
         } else {
-            title = "Wrong"
+            title = "Wrong! That's the flag of \(countries[sender.tag].uppercased())!"
             score -= 1
+        }
+        
+        guard round != 10 else {
+            let ac = UIAlertController(title: "\(title) But Game over", message: "Your final score is \(score)", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Start New Game", style: .default, handler: askQuestion))
+            self.present(ac, animated: true, completion: nil)
+            score = 0
+            round = 0
+            return
         }
         
         let ac = UIAlertController(title: title, message: "Your score is \(score)", preferredStyle: .alert)
