@@ -2,7 +2,7 @@
 [К оглавлению](/README.md)
       
 ## Описание       
-Данное приложение создается c 13-го по 15-й день челенджа.
+В этом проекте мы познакомились с TableView, ImageView, UIImage, узнали что такое FileManager,  view controllers, storyboards, outlets, Auto Layout, а также что испробовали на практике приведением типов.
 
 [Папка с кодом приложения](/100DayOfSwift/Project1)
 
