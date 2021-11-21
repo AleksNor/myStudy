@@ -29,6 +29,7 @@ class ViewController: UITableViewController{
         let cell = tableView.dequeueReusableCell(withIdentifier: "Site", for: indexPath)
         var content = cell.defaultContentConfiguration()
         content.text = websites[indexPath.row]
+        content.image = UIImage(systemName: "pencil.circle")
         cell.contentConfiguration = content
         return cell
     }
