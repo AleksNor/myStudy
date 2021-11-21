@@ -14,6 +14,6 @@
 
 ## <a id="SwiftBook"></a>SwiftBook
 - [Block #2]
-    - [Home Work #1](swiftbook/Home Work 2.1.)
-    - [Home Work #1](swiftbook/Home Work 2.2.)
+    - [Home Work #1](swiftbook/Home%20Work%202.1.)
+    - [Home Work #2](swiftbook/Home%20Work%202.2.)
 
