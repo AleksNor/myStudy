@@ -8,16 +8,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="LoginApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Main" id="BYZ-38-t0r" customClass="MainViewController" customModule="LoginApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="laz-Pf-uru">
-                                <rect key="frame" x="16" y="348.5" width="382" height="199.5"/>
+                                <rect key="frame" x="16" y="323" width="382" height="250.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UsM-kl-tGF">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="34"/>
@@ -36,7 +36,7 @@
                                             <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="chechButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Gs-K6-w6a"/>
+                                            <action selector="checkButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h7n-In-ehs"/>
                                             <segue destination="0km-sw-HgT" kind="presentation" identifier="toBarController" id="TwI-h6-wkL"/>
                                         </connections>
                                     </button>
@@ -50,7 +50,7 @@
                                                     <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="showMyUserName:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5eR-66-aRM"/>
+                                                    <action selector="showMyUserName:" destination="BYZ-38-t0r" eventType="touchUpInside" id="neN-gY-5NR"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IC2-ow-4Zi">
@@ -60,11 +60,19 @@
                                                     <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="showMyPassword:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6AF-gA-JGA"/>
+                                                    <action selector="showMyPassword:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S15-5G-9nJ"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9py-dN-Cwj">
+                                        <rect key="frame" x="0.0" y="219.5" width="382" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Change User"/>
+                                        <connections>
+                                            <action selector="changeUser" destination="BYZ-38-t0r" eventType="touchUpInside" id="tBj-PJ-ZVk"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -77,8 +85,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="passwordTextField" destination="xGs-2w-ndX" id="V7O-Sp-CLP"/>
-                        <outlet property="userNameTextField" destination="UsM-kl-tGF" id="xrv-LP-9gS"/>
+                        <outlet property="passwordTextField" destination="xGs-2w-ndX" id="vTO-2R-nc3"/>
+                        <outlet property="userNameTextField" destination="UsM-kl-tGF" id="BQU-hZ-pXv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -93,10 +101,25 @@
                     <view key="view" contentMode="scaleToFill" id="NqE-C4-pxc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBO-IU-SDg">
+                                <rect key="frame" x="186" y="410.5" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Udc-g3-Juf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UBO-IU-SDg" firstAttribute="centerX" secondItem="NqE-C4-pxc" secondAttribute="centerX" id="BpL-rB-aAR"/>
+                            <constraint firstItem="UBO-IU-SDg" firstAttribute="centerY" secondItem="NqE-C4-pxc" secondAttribute="centerY" id="Ryw-6P-UIf"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" image="bookmark.circle" catalog="system" selectedImage="bookmark.circle.fill" id="3u6-kH-pSX"/>
+                    <connections>
+                        <outlet property="textLabel" destination="UBO-IU-SDg" id="THi-2n-RJ9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TMB-A5-7hU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -105,13 +128,13 @@
         <!--Challange-->
         <scene sceneID="inN-u4-Foo">
             <objects>
-                <viewController storyboardIdentifier="ChallengViewController" id="WzJ-VI-eFy" customClass="ChallengViewController" customModule="LoginApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChallengeViewController" id="WzJ-VI-eFy" customClass="ChallengeViewController" customModule="LoginApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aLs-cT-oBe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wp4032018" translatesAutoresizingMaskIntoConstraints="NO" id="Xk0-4W-xOW">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="759"/>
+                                <rect key="frame" x="0.0" y="-66" width="414" height="908"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kcw-f5-ghL">
                                 <rect key="frame" x="16" y="346" width="382" height="150.5"/>
@@ -146,17 +169,15 @@
                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Xk0-4W-xOW" firstAttribute="leading" secondItem="nE8-yb-Wn2" secondAttribute="leading" id="0tg-Mk-bjn"/>
-                            <constraint firstItem="nE8-yb-Wn2" firstAttribute="bottom" secondItem="Xk0-4W-xOW" secondAttribute="bottom" id="48L-1v-Dbz"/>
+                            <constraint firstItem="nE8-yb-Wn2" firstAttribute="bottom" secondItem="Xk0-4W-xOW" secondAttribute="bottom" constant="-83" id="48L-1v-Dbz"/>
                             <constraint firstItem="nE8-yb-Wn2" firstAttribute="trailing" secondItem="Xk0-4W-xOW" secondAttribute="trailing" id="Z6B-TA-JcQ"/>
                             <constraint firstItem="kcw-f5-ghL" firstAttribute="centerY" secondItem="aLs-cT-oBe" secondAttribute="centerY" id="eSW-T9-LGl"/>
                             <constraint firstItem="kcw-f5-ghL" firstAttribute="leading" secondItem="nE8-yb-Wn2" secondAttribute="leading" constant="16" id="hYK-6w-FEp"/>
                             <constraint firstItem="nE8-yb-Wn2" firstAttribute="trailing" secondItem="kcw-f5-ghL" secondAttribute="trailing" constant="16" id="igZ-G7-TzT"/>
-                            <constraint firstItem="Xk0-4W-xOW" firstAttribute="top" secondItem="nE8-yb-Wn2" secondAttribute="top" id="wFj-h3-qDc"/>
+                            <constraint firstItem="Xk0-4W-xOW" firstAttribute="top" secondItem="nE8-yb-Wn2" secondAttribute="top" constant="-66" id="wFj-h3-qDc"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Challange" image="graduationcap" catalog="system" selectedImage="graduationcap.fill" id="04g-EC-LV8">
-                        <color key="badgeColor" red="0.0" green="1" blue="0.30919474363327026" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Challange" image="graduationcap" catalog="system" selectedImage="graduationcap.fill" id="04g-EC-LV8"/>
                     <connections>
                         <outlet property="welcomLabel" destination="2Pi-tw-kpU" id="K1K-L1-VmN"/>
                     </connections>
@@ -172,7 +193,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="keo-oE-ThF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="selectedImageTintColor" systemColor="systemYellowColor"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="WzJ-VI-eFy" kind="relationship" relationship="viewControllers" id="JIf-Gf-hoB"/>
@@ -192,9 +213,6 @@
         <image name="wp4032018" width="414" height="896"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
