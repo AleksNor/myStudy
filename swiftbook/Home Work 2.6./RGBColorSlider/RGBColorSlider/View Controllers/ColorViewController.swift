@@ -13,13 +13,10 @@ class ColorViewController: UIViewController {
         super.viewDidLoad()
     }
     
-//    private func toViewController() {
-//        let vc = storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-//    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! ViewController
         vc.delegat = self
+        vc.currentColor = view.backgroundColor ?? .black
     }
     
     private func changeViewColor(with color: UIColor) {

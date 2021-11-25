@@ -84,17 +84,17 @@
                                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0.50" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MNJ-G0-OmO">
                                                 <rect key="frame" x="0.0" y="0.0" width="55" height="40"/>
                                                 <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                             </textField>
                                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0.50" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KLI-fN-Dje">
                                                 <rect key="frame" x="0.0" y="55" width="55" height="34"/>
                                                 <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                             </textField>
                                             <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0.50" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gp1-n0-tEn">
                                                 <rect key="frame" x="0.0" y="104" width="55" height="34"/>
                                                 <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                             </textField>
                                         </subviews>
                                         <constraints>

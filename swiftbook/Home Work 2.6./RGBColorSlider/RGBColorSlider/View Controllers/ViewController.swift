@@ -47,12 +47,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         greenTextField.delegate = self
         blueTextField.delegate = self
         
-        colorView.backgroundColor = setColor()
-        currentColor = setColor()
+        colorView.backgroundColor = currentColor
+        sliderCorrection()
         setValueForTextField()
-        
-        navigationItem.hidesBackButton = true
-        delegat?.changeUIColor(currentColor: currentColor)
     }
     //MARK: - IB Actions
     
@@ -98,6 +95,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
         redTextField.text = toString(redSlider)
         greenTextField.text = toString(greeenSlider)
         blueTextField.text = toString(blueSlider)
+    }
+    
+    private func sliderCorrection() {
+        let ciColor = CIColor(color: currentColor)
+        
+        redSlider.value = Float(ciColor.red)
+        greeenSlider.value = Float(ciColor.green)
+        blueSlider.value = Float(ciColor.blue)
+        
     }
 }
 
@@ -159,6 +165,7 @@ extension ViewController {
             }
             colorView.backgroundColor = setColor()
             currentColor = setColor()
+            delegat?.changeUIColor(currentColor: currentColor)
             
         } else {
             showAlert(title: "Неправильный формат!", message: "Введи значение от 0 до 1!")
