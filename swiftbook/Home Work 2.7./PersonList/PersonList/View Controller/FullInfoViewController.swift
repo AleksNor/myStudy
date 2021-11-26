@@ -30,9 +30,9 @@ extension FullInfoViewController {
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header = view as! UITableViewHeaderFooterView
-        header.backgroundConfiguration?.backgroundColor = #colorLiteral(red: 0.8460641503, green: 0.9139698744, blue: 0.9580304027, alpha: 1)
+        header.backgroundConfiguration?.backgroundColor = #colorLiteral(red: 0.9210522771, green: 0.9559040666, blue: 0.9741011262, alpha: 1)
         header.textLabel?.textColor = .black
-        header.textLabel?.font = UIFont(name: "Helvetica-Bold", size: 14)
+        header.textLabel?.font = UIFont(name: "Helvetica-Bold", size: 16)
 }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
