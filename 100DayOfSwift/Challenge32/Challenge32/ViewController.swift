@@ -11,13 +11,20 @@ class ViewController: UITableViewController {
     
     lazy var shoppingList: [String] = []
     
+    //MARK: - Lifcycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewItem))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshPage))
+        let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshPage))
+        let share = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareList))
+        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        navigationItem.leftBarButtonItems = [refresh, spacer, share]
     }
+    
+    //MARK: - Private func
     
     @objc func addNewItem() {
         showAllert()
@@ -28,9 +35,14 @@ class ViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return shoppingList.count
+    @objc func shareList() {
+        let list =  shoppingList.joined(separator: "\sn")
+        
+        let vc = UIActivityViewController(activityItems: [list], applicationActivities: [])
+        vc.popoverPresentationController?.barButtonItem = navigationItem.leftBarButtonItem
+        present(vc, animated: true)
     }
+    
     
     private func showAllert() {
         let ac = UIAlertController(title: "Adding to shoping list", message: "Add something to shoping list", preferredStyle: .alert)
@@ -58,12 +70,20 @@ class ViewController: UITableViewController {
         present(ac, animated: true)
     }
     
+}
+
+//MARK: - TabelView
+
+extension ViewController {
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return shoppingList.count
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "item", for: indexPath)
         cell.textLabel?.text = shoppingList[indexPath.row]
         return cell
     }
-
-
 }
 
