@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  CocoaPodsAnimation
+//  covidAPI
 //
 //  Created by Евгений Карпов on 29.11.2021.
 //
