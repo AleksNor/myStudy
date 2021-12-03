@@ -18,9 +18,10 @@ class ViewController: UIViewController {
     var activatedButtons = [UIButton]()
     var solutions = [String]()
     
-    var score = 0 {
+    var score = 0
+    var deductionScore = 0 {
         didSet {
-            scoreLabel.text = "Score: \(score)"
+            scoreLabel.text = "Deduction score: \(deductionScore)"
         }
     }
     var level = 1
@@ -33,7 +34,7 @@ class ViewController: UIViewController {
         scoreLabel = UILabel()
         scoreLabel.translatesAutoresizingMaskIntoConstraints = false
         scoreLabel.textAlignment = .right
-        scoreLabel.text = "Score: 0"
+        scoreLabel.text = "Deduction score: 0"
         view.addSubview(scoreLabel)
         
         cluesLabel = UILabel()
@@ -63,6 +64,9 @@ class ViewController: UIViewController {
         
         let submit = UIButton(type: .system)
         submit.translatesAutoresizingMaskIntoConstraints = false
+        submit.layer.borderWidth = 1
+        submit.layer.cornerRadius = 10
+        submit.layer.borderColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         submit.setTitle("SUBMIT", for: .normal)
         submit.addTarget(self, action: #selector(submitTapped), for: .touchUpInside)
         view.addSubview(submit)
@@ -71,6 +75,9 @@ class ViewController: UIViewController {
         clear.translatesAutoresizingMaskIntoConstraints = false
         clear.setTitle("CLEAR", for: .normal)
         clear.addTarget(self, action: #selector(clearTapped), for: .touchUpInside)
+        clear.layer.borderWidth = 1
+        clear.layer.cornerRadius = 10
+        clear.layer.borderColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         view.addSubview(clear)
         
         let buttonsView = UIView()
@@ -120,6 +127,8 @@ class ViewController: UIViewController {
             submit.centerXAnchor.constraint(
                 equalTo: view.centerXAnchor,
                 constant: -100),
+            submit.widthAnchor.constraint(
+                equalToConstant: 120),
             submit.heightAnchor.constraint(
                 equalToConstant: 44),
             
@@ -128,6 +137,8 @@ class ViewController: UIViewController {
                 constant: 100),
             clear.centerYAnchor.constraint(
                 equalTo: submit.centerYAnchor),
+            clear.widthAnchor.constraint(
+                equalToConstant: 120),
             clear.heightAnchor.constraint(
                 equalToConstant: 44),
             
@@ -147,10 +158,10 @@ class ViewController: UIViewController {
                 let letterbutton = UIButton(type: .system)
                 letterbutton.titleLabel?.font = UIFont.systemFont(ofSize: 36)
                 letterbutton.setTitle("WWW", for: .normal)
+                letterbutton.addTarget(self, action: #selector(letterTapped), for: .touchUpInside)
                 
                 let frame = CGRect(x: width * column, y: height * row, width: width, height: height)
                 letterbutton.frame = frame
-                letterbutton.addTarget(self, action: #selector(letterTapped), for: .touchUpInside)
                 buttonsView.addSubview(letterbutton)
                 letterButtons.append(letterbutton)
             }
@@ -161,7 +172,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         loadLevel()
     }
@@ -175,13 +185,6 @@ class ViewController: UIViewController {
     
     @objc func submitTapped(_ sender: UIButton) {
         guard let answerText = currentAnswer.text else {
-            currentAnswer.text = ""
-
-            for btn in activatedButtons {
-                btn.isHidden = false
-            }
-
-            activatedButtons.removeAll()
             return }
 
         if let solutionPosition = solutions.firstIndex(of: answerText) {
@@ -193,12 +196,24 @@ class ViewController: UIViewController {
 
             currentAnswer.text = ""
             score += 1
+            deductionScore += 1
 
             if score % 7 == 0 {
-                let ac = UIAlertController(title: "Well done!", message: "Are you ready for the next level?", preferredStyle: .alert)
+                let ac = UIAlertController(title: "Well done!", message: "Твое количество очков дедукции \(deductionScore)! Are you ready for the next level?", preferredStyle: .alert)
                 ac.addAction(UIAlertAction(title: "Let's go!", style: .default, handler: levelUp))
                 present(ac, animated: true)
+        }
+        } else {
+            currentAnswer.text = ""
+            
+            for btn in activatedButtons {
+                btn.isHidden = false
             }
+            
+            activatedButtons.removeAll()
+            showWrongAller()
+            guard deductionScore > 0 else {return}
+            deductionScore -= 1
         }
     }
     
@@ -252,7 +267,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func levelUp(action: UIAlertAction) {
+    private func levelUp(action: UIAlertAction) {
         level += 1
         solutions.removeAll(keepingCapacity: true)
 
@@ -261,6 +276,17 @@ class ViewController: UIViewController {
         for btn in letterButtons {
             btn.isHidden = false
         }
+    }
+    
+    private func showWrongAller() {
+        let allerController = UIAlertController(
+            title: "Ошибочка",
+            message: "А мы это слово и не загадывали", preferredStyle: .alert)
+        let okButton = UIAlertAction(
+            title: "Понял, приня...",
+            style: .default)
+        allerController.addAction(okButton)
+        present(allerController, animated: true)
     }
 
 
