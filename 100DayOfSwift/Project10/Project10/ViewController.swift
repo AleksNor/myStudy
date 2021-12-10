@@ -21,6 +21,17 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     
     @objc func addNewPerson() {
         let picker = UIImagePickerController()
+        
+        
+//        if  UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
+//            picker.sourceType = UIImagePickerController.SourceType.camera
+//        } else
+//        {
+//            let alert  = UIAlertController(title: "Warning", message: "You don't have camera", preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//            self.present(alert, animated: true, completion: nil)
+//        }
+       
         picker.allowsEditing = true
         picker.delegate = self
         present(picker, animated: true)
@@ -80,19 +91,31 @@ extension ViewController {
         
         let person = people[indexPath.item]
         
-        let ac = UIAlertController(title: "Rename person", message: nil, preferredStyle: .alert)
-        ac.addTextField()
+        let ac = UIAlertController(title: "Выбери действие", message: nil, preferredStyle: .alert)
         
-        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        ac.addAction(UIAlertAction(title: "Отмена", style: .cancel))
         
-        ac.addAction(UIAlertAction(title: "OK", style: .default) { [weak self, weak ac] _ in
-            guard let newName = ac?.textFields?[0].text else { return }
-            person.name = newName
+        ac.addAction(UIAlertAction(title: "Изменить имя", style: .default) { [weak self] _ in
+            let alertc = UIAlertController(title: "Rename person", message: nil, preferredStyle: .alert)
             
-            self?.collectionView.reloadData()
+            alertc.addTextField()
+            
+            alertc.addAction(UIAlertAction(title: "OK", style: .default) { [weak self, weak alertc] _ in
+                
+                guard let newName = alertc?.textFields?[0].text else { return }
+                person.name = newName
+                
+                self?.collectionView.reloadData()
+            })
+            self?.present(alertc, animated: true)
         })
         
+        ac.addAction(UIAlertAction(title: "Удалить", style: .destructive, handler: { [weak self] _ in
+            self?.people.remove(at: indexPath.item)
+            self?.collectionView.reloadData()
+        }))
+        
+        
         present(ac, animated: true)
-    }    
+    }
 }
-
