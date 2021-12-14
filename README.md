@@ -34,4 +34,13 @@
 - **Block #2**
     - [Home Work #1](swiftbook/Home%20Work%202.1.)
     - [Home Work #2](swiftbook/Home%20Work%202.2.)
+    - [Home Work #4](swiftbook/Home%20Work%202.4./LoginApp)
+    - [Home Work #6](swiftbook/Home%20Work%202.6./RGBColorSlider)
+    - [Home Work #7](swiftbook/Home%20Work%202.7.//PersonList)
+    - [Home Work #10](swiftbook/Home%20Work%202.2.)
+- **Courses**
+    - API
+    - MVVM
+    - iChat
+    - GCD
 
