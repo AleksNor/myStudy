@@ -19,6 +19,10 @@
 		2646BAB42763D44300D49AB7 /* TabelViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2646BAB32763D44300D49AB7 /* TabelViewModelType.swift */; };
 		2646BAB82763D93300D49AB7 /* TableViewCellModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2646BAB72763D93300D49AB7 /* TableViewCellModelType.swift */; };
 		2646BABA2763D9BF00D49AB7 /* TableViewCellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2646BAB92763D9BF00D49AB7 /* TableViewCellViewModelType.swift */; };
+		2646BB33276A42E800D49AB7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2646BB32276A42E800D49AB7 /* DetailViewController.swift */; };
+		2646BB35276A434F00D49AB7 /* DetailViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2646BB34276A434F00D49AB7 /* DetailViewModelType.swift */; };
+		2646BB37276A437200D49AB7 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2646BB36276A437200D49AB7 /* DetailViewModel.swift */; };
+		2646BB39276A4A3500D49AB7 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2646BB38276A4A3500D49AB7 /* Box.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,10 @@
 		2646BAB32763D44300D49AB7 /* TabelViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabelViewModelType.swift; sourceTree = "<group>"; };
 		2646BAB72763D93300D49AB7 /* TableViewCellModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellModelType.swift; sourceTree = "<group>"; };
 		2646BAB92763D9BF00D49AB7 /* TableViewCellViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellViewModelType.swift; sourceTree = "<group>"; };
+		2646BB32276A42E800D49AB7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		2646BB34276A434F00D49AB7 /* DetailViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelType.swift; sourceTree = "<group>"; };
+		2646BB36276A437200D49AB7 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		2646BB38276A4A3500D49AB7 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +86,7 @@
 				2646BA9E2763CE7900D49AB7 /* Assets.xcassets */,
 				2646BAA02763CE7900D49AB7 /* LaunchScreen.storyboard */,
 				2646BAA32763CE7900D49AB7 /* Info.plist */,
+				2646BB38276A4A3500D49AB7 /* Box.swift */,
 			);
 			path = MVVM2;
 			sourceTree = "<group>";
@@ -94,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				2646BAA92763CEC700D49AB7 /* TableViewController.swift */,
+				2646BB32276A42E800D49AB7 /* DetailViewController.swift */,
 				2646BAAD2763D0A000D49AB7 /* TableViewCell.swift */,
 			);
 			path = View;
@@ -103,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				2646BAB12763D3C300D49AB7 /* ViewModel.swift */,
+				2646BB36276A437200D49AB7 /* DetailViewModel.swift */,
 				2646BAB92763D9BF00D49AB7 /* TableViewCellViewModelType.swift */,
 			);
 			path = ViewModel;
@@ -112,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				2646BAB32763D44300D49AB7 /* TabelViewModelType.swift */,
+				2646BB34276A434F00D49AB7 /* DetailViewModelType.swift */,
 				2646BAB72763D93300D49AB7 /* TableViewCellModelType.swift */,
 			);
 			path = Protocols;
@@ -194,7 +206,11 @@
 				2646BAAA2763CEC700D49AB7 /* TableViewController.swift in Sources */,
 				2646BAB22763D3C300D49AB7 /* ViewModel.swift in Sources */,
 				2646BAB82763D93300D49AB7 /* TableViewCellModelType.swift in Sources */,
+				2646BB39276A4A3500D49AB7 /* Box.swift in Sources */,
+				2646BB35276A434F00D49AB7 /* DetailViewModelType.swift in Sources */,
+				2646BB37276A437200D49AB7 /* DetailViewModel.swift in Sources */,
 				2646BABA2763D9BF00D49AB7 /* TableViewCellViewModelType.swift in Sources */,
+				2646BB33276A42E800D49AB7 /* DetailViewController.swift in Sources */,
 				2646BA982763CE7900D49AB7 /* SceneDelegate.swift in Sources */,
 				2646BAB42763D44300D49AB7 /* TabelViewModelType.swift in Sources */,
 			);

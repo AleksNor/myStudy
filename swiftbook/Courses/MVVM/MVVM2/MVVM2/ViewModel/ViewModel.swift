@@ -8,9 +8,12 @@
 import Foundation
 
 class ViewModel: TableViewViewModelType {
+    
+    private var selectedIndexPath: IndexPath?
+    
     var profiles = [
         Profile(name: "John", secondName: "Smith", age: 33),
-        Profile(name: "max", secondName: "Kolby", age: 21),
+        Profile(name: "Max", secondName: "Kolby", age: 21),
         Profile(name: "Mark", secondName: "salmon", age: 55)]
     
     func numberOfRows() -> Int {
@@ -21,5 +24,17 @@ class ViewModel: TableViewViewModelType {
         let profile = profiles[IndexPath.row]
         
         return TableViewCellViewModelType(profile: profile)
+    }
+    
+    func selectRow(atIndexPath indexPath: IndexPath) {
+        self.selectedIndexPath = indexPath
+    }
+    
+    func viewModelForSelectedRow() -> DetailViewModelType? {
+        guard let selectedIndexPath = selectedIndexPath else {
+            return nil
+        }
+
+        return DetailViewModel(profile: profiles[selectedIndexPath.row])
     }
 }
