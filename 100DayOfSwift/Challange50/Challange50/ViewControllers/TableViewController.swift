@@ -10,13 +10,15 @@ import UIKit
 class TableViewController: UITableViewController {
     
     var photos = [Photo]()
-    var savedPhotoName = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPhoto))
-        loadPhotos()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        photos = StorageManager.shared.fetchData()
     }
     
     @objc func addNewPhoto() {
@@ -37,6 +39,13 @@ extension TableViewController {
         return photos.count
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController else { return }
+        let photo = photos[indexPath.row]
+        vc.photoName = photo.image
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "photoCell", for: indexPath) as? PhotoCell else {
              fatalError("Unable to dequqe PhotoCell")
@@ -52,20 +61,20 @@ extension TableViewController {
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let actionSwipeInstance = UIContextualAction(style: .destructive, title: "Удалить") { _, _, _ in
-            self.removePhoto(forKey: self.photos[indexPath.row].name)
+            StorageManager.shared.removePhoto(for: indexPath)
             self.photos.remove(at: indexPath.row)
-            self.savedPhotoName.remove(at: indexPath.row)
             self.tableView.reloadSections(IndexSet(arrayLiteral: indexPath.section), with: .automatic)
         }
         return UISwipeActionsConfiguration(actions: [actionSwipeInstance])
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController else { return }
-        let photo = photos[indexPath.row]
-        vc.photoName = photo.image
-        navigationController?.pushViewController(vc, animated: true)
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let actionSwipeInstance = UIContextualAction(style: .normal, title: "Переимновать") { _, _, _ in
+            self.renameAlert(for: indexPath)
+        }
+        return UISwipeActionsConfiguration(actions:  [actionSwipeInstance])
     }
+    
 }
 
 // MARK: - ImagePickerControllerDelegate
@@ -73,21 +82,16 @@ extension TableViewController {
 extension TableViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        guard let image = info[.editedImage] as? UIImage else { return }
+        guard let imageURL = info[.editedImage] as? UIImage else { return }
         let imageName = UUID().uuidString
         let imagePath = getDocumnetsDirectory().appendingPathComponent(imageName)
-        
-        if let jpegData = image.jpegData(compressionQuality: 0.8) {
+        if let jpegData = imageURL.jpegData(compressionQuality: 0.8) {
             try? jpegData.write(to: imagePath)
         }
-        
-        let photo = Photo(name: imageName, image: imageName)
+        let photo = Photo(name: "Unknown", image: imageName)
         photos.append(photo)
-        savedPhotoName.append(imageName)
         tableView.reloadData()
-        
-        savePhoto(forKey: imageName, data: photo)
+        StorageManager.shared.save(photo: photo)
         dismiss(animated: true)
     }
     
@@ -100,64 +104,19 @@ extension TableViewController: UIImagePickerControllerDelegate & UINavigationCon
 // MARK: - UIAlertController
 
 extension TableViewController {
-    private func addAlert() -> String {
-        var resultString: String = "Unknown"
+    
+    private func renameAlert(for indexPath: IndexPath){
         let ac = UIAlertController(title: "Введи название изображения", message: nil, preferredStyle: .alert)
         ac.addTextField { textField in
             textField.placeholder = "Введи название здесь"
         }
-        ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-            resultString = ac.textFields?[0].text ?? "1"
-        }))
+        ac.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+            guard let text = ac.textFields?.first?.text, !text.isEmpty else { return }
+            self.photos[indexPath.row].name = text
+            StorageManager.shared.renamePhoto(for: indexPath, and: text)
+            self.tableView.reloadSections(IndexSet(arrayLiteral: indexPath.section), with: .automatic)
+        })
         present(ac, animated: true)
-        return resultString
     }
 }
 
-// MARK: - UserDefaults
-
-extension TableViewController {
-    private func savePhoto(forKey: String, data: Photo) {
-        let jsonEncoder = JSONEncoder()
-        let userDeafults = UserDefaults.standard
-        if let savedData = try? jsonEncoder.encode(data) {
-            userDeafults.set(savedData, forKey: forKey)
-        } else {
-            print("Failed to save photo")
-        }
-        if let savedData = try? jsonEncoder.encode(savedPhotoName) {
-            userDeafults.set(savedData, forKey: "savedPhotoName")
-        } else {
-            print("Failed to save PhotoName")
-        }
-    }
-    
-    private func removePhoto(forKey: String) {
-        let userDeafults = UserDefaults.standard
-        userDeafults.removeObject(forKey: forKey)
-    }
-    
-    private func loadPhotos() {
-        let defaults = UserDefaults.standard
-        let jsonDecoder = JSONDecoder()
-        
-        if let savedName = defaults.object(forKey: "savedPhotoName") as? Data {
-            do {
-                self.savedPhotoName = try jsonDecoder.decode([String].self, from: savedName)
-            } catch  {
-                print("Failed to load people")
-            }
-        }
-        
-        for photoName in savedPhotoName {
-            if let savedPhoto = defaults.object(forKey: photoName) as? Data {
-                do {
-                    let photo = try jsonDecoder.decode(Photo.self, from: savedPhoto)
-                    photos.append(photo)
-                } catch  {
-                    print("Failed to load people")
-                }
-            }
-        }
-    }
-}

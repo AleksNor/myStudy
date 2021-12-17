@@ -9,6 +9,6 @@ import Foundation
 
 
 struct Photo: Codable {
-    let name: String
+    var name: String
     let image: String
 }
