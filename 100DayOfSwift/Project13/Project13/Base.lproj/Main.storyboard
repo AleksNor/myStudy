@@ -47,10 +47,7 @@
                                 </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KtO-fo-DaZ">
-                                <rect key="frame" x="20" y="808.5" width="120" height="33.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="wmD-9m-BqP"/>
-                                </constraints>
+                                <rect key="frame" x="20" y="808.5" width="117.5" height="33.5"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Change filter">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
@@ -60,10 +57,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jlL-xj-RAE">
-                                <rect key="frame" x="334" y="808.5" width="60" height="33.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="YvK-UW-as9"/>
-                                </constraints>
+                                <rect key="frame" x="335" y="808.5" width="59" height="33.5"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Save">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
@@ -86,6 +80,7 @@
                             <constraint firstItem="Mj7-56-rat" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Uvp-NG-bO1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KtO-fo-DaZ" secondAttribute="bottom" constant="20" id="WRK-st-LGQ"/>
                             <constraint firstItem="Mj7-56-rat" firstAttribute="trailing" secondItem="vQx-cf-Sk6" secondAttribute="trailing" id="ZKC-cV-8yN"/>
+                            <constraint firstItem="jlL-xj-RAE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KtO-fo-DaZ" secondAttribute="trailing" constant="8" symbolic="YES" id="aRS-VK-YOt"/>
                             <constraint firstItem="Mj7-56-rat" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="bmv-gm-wTb"/>
                             <constraint firstItem="iQb-Oi-HhS" firstAttribute="leading" secondItem="KtO-fo-DaZ" secondAttribute="leading" id="dD9-LW-bBP"/>
                             <constraint firstItem="vQx-cf-Sk6" firstAttribute="top" secondItem="Mj7-56-rat" secondAttribute="bottom" constant="40" id="fMS-Yu-nDj"/>
@@ -96,7 +91,7 @@
                     <navigationItem key="navigationItem" id="Cx9-2J-JmK"/>
                     <connections>
                         <outlet property="imageView" destination="RML-Bz-EcT" id="9cG-hN-xmt"/>
-                        <outlet property="intesity" destination="vQx-cf-Sk6" id="vhI-Tn-YCk"/>
+                        <outlet property="intensity" destination="vQx-cf-Sk6" id="kjZ-kT-eRg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
