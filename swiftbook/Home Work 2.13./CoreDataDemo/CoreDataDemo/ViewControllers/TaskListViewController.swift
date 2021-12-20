@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import CoreData
 
 class TaskListViewController: UITableViewController{
     
@@ -14,10 +13,12 @@ class TaskListViewController: UITableViewController{
     
     private let cellID = "cell"
     private var tasks: [Task] = []
+    private var storageManager: StorageManagerProtocol!
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        storageManager = StorageManager.shared
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
         view.backgroundColor = .white
         setupNavigationBar()
@@ -25,7 +26,7 @@ class TaskListViewController: UITableViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tasks = StorageManager.shared.fetchData()
+        tasks = storageManager.fetchData()
     }
     // MARK: - Private methods
     
@@ -67,7 +68,7 @@ class TaskListViewController: UITableViewController{
         }
         let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
             guard let taskName = alert.textFields?.first?.text, !taskName.isEmpty  else { return }
-            guard let task = StorageManager.shared.saveData(with: taskName) else { return }
+            guard let task = self.storageManager.saveData(with: taskName) else { return }
             self.tasks.append(task)
             let cellIndex = IndexPath(row: self.tasks.count - 1, section: 0)
             self.tableView.insertRows(at: [cellIndex], with: .automatic)
@@ -98,7 +99,7 @@ extension TaskListViewController {
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let actionSwipeInstance = UIContextualAction(style: .destructive, title: "Удалить") { _, _, _ in
-            StorageManager.shared.removeDate(at: indexPath)
+            self.storageManager.removeDate(at: indexPath)
             self.tasks.remove(at: indexPath.row)
             self.tableView.reloadSections(IndexSet(arrayLiteral: indexPath.section), with: .automatic)
         }

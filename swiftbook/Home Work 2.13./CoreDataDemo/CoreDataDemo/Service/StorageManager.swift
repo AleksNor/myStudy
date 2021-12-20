@@ -8,8 +8,27 @@
 import UIKit
 import CoreData
 
+protocol StorageManagerProtocol {
+    func saveContext()
+    func fetchData() -> [Task]
+    func saveData(with taskName: String) -> Task?
+    func removeDate(at indexPath: IndexPath)
+}
 
-class StorageManager {
+
+class StorageManager: StorageManagerProtocol {
+    // MARK: - Core Data stack
+
+    private lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "CoreDataDemo")
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        })
+        return container
+    }()
+    
     // MARK: - Properties
     
     static var shared = StorageManager()
@@ -17,11 +36,12 @@ class StorageManager {
     // MARK: - Private methods
     
     private func getContext() -> NSManagedObjectContext {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        return appDelegate.persistentContainer.viewContext
+        return persistentContainer.viewContext
     }
     
-    private func saveContext() {
+    
+    // MARK: - Public methods
+    public func saveContext() {
         if getContext().hasChanges {
             do {
                 try getContext().save()
@@ -30,8 +50,6 @@ class StorageManager {
             }
         }
     }
-    
-    // MARK: - Public methods
     
     public func fetchData() -> [Task] {
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()

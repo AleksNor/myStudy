@@ -69,8 +69,9 @@ extension TableViewController {
     }
     
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let actionSwipeInstance = UIContextualAction(style: .normal, title: "Переимновать") { _, _, _ in
+        let actionSwipeInstance = UIContextualAction(style: .normal, title: "Переимновать") { _, _, isDone in
             self.renameAlert(for: indexPath)
+            isDone(true)
         }
         return UISwipeActionsConfiguration(actions:  [actionSwipeInstance])
     }
