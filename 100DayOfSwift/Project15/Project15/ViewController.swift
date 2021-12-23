@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func tapped(_ sender: UIButton) {
-        sender.isHidden = true
+//        sender.isHidden = true
         
 //        UIView.animate(withDuration: 1, delay: 0, options: []) {
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: []) {
