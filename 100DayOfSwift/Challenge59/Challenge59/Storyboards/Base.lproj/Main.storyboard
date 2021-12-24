@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MTk-VQ-AAW">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Countries List Table View Controller-->
+        <scene sceneID="jnJ-Eh-DfA">
+            <objects>
+                <tableViewController id="XCE-ft-4XG" customClass="CountriesListTableViewController" customModule="Challenge59" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="mP2-Ua-UWD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CountryCell" id="wzL-Mk-tKJ" customClass="CountryTableViewCell" customModule="Challenge59" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wzL-Mk-tKJ" id="sfu-j4-lIB">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="XCE-ft-4XG" id="be4-XL-eCa"/>
+                            <outlet property="delegate" destination="XCE-ft-4XG" id="Da8-ab-Sa5"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Xrj-4D-6Wb"/>
+                    <connections>
+                        <segue destination="fda-KM-jZb" kind="show" identifier="ShowDetails" id="wdR-ib-7Gp"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P3X-RD-Qad" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="784.05797101449286" y="118.52678571428571"/>
+        </scene>
+        <!--Country Details View Controller-->
+        <scene sceneID="O4v-bB-Lg8">
+            <objects>
+                <viewController id="fda-KM-jZb" customClass="CountryDetailsViewController" customModule="Challenge59" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YrO-aB-pRo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="N77-MB-aoQ">
+                                <rect key="frame" x="0.0" y="304.5" width="414" height="557.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailCell" id="aCb-61-Kji" customClass="CountryDetailTableViewCell" customModule="Challenge59" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aCb-61-Kji" id="fTI-5d-Xdi">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="fda-KM-jZb" id="r9A-u6-bCG"/>
+                                    <outlet property="delegate" destination="fda-KM-jZb" id="JXG-ok-P3J"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9b-Xh-E12">
+                                <rect key="frame" x="16" y="98" width="382" height="33.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="01R-YF-ZOG">
+                                <rect key="frame" x="0.0" y="146.5" width="414" height="128"/>
+                                <color key="backgroundColor" white="0.96795679535184587" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="VpR-IP-K9O"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="wqR-AU-rHs"/>
+                        <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="01R-YF-ZOG" firstAttribute="top" secondItem="b9b-Xh-E12" secondAttribute="bottom" constant="15" id="0sK-O4-ANz"/>
+                            <constraint firstItem="wqR-AU-rHs" firstAttribute="trailing" secondItem="01R-YF-ZOG" secondAttribute="trailing" id="5zc-Pu-NXM"/>
+                            <constraint firstItem="N77-MB-aoQ" firstAttribute="leading" secondItem="wqR-AU-rHs" secondAttribute="leading" id="ACz-Vz-sIQ"/>
+                            <constraint firstItem="N77-MB-aoQ" firstAttribute="top" secondItem="01R-YF-ZOG" secondAttribute="bottom" constant="30" id="Qel-cc-3Yg"/>
+                            <constraint firstItem="wqR-AU-rHs" firstAttribute="bottom" secondItem="N77-MB-aoQ" secondAttribute="bottom" id="cLG-vF-dg9"/>
+                            <constraint firstItem="wqR-AU-rHs" firstAttribute="trailing" secondItem="b9b-Xh-E12" secondAttribute="trailing" constant="16" id="cch-Ut-aGj"/>
+                            <constraint firstItem="b9b-Xh-E12" firstAttribute="top" secondItem="wqR-AU-rHs" secondAttribute="top" constant="10" id="exC-aA-oeT"/>
+                            <constraint firstItem="wqR-AU-rHs" firstAttribute="trailing" secondItem="N77-MB-aoQ" secondAttribute="trailing" id="foK-yf-W7V"/>
+                            <constraint firstItem="b9b-Xh-E12" firstAttribute="leading" secondItem="wqR-AU-rHs" secondAttribute="leading" constant="16" id="muj-QD-giL"/>
+                            <constraint firstItem="01R-YF-ZOG" firstAttribute="leading" secondItem="wqR-AU-rHs" secondAttribute="leading" id="yW8-CC-XJk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="UJ5-hR-eEY"/>
+                    <connections>
+                        <outlet property="countryName" destination="b9b-Xh-E12" id="4KV-ft-QZP"/>
+                        <outlet property="flagImage" destination="01R-YF-ZOG" id="AC8-Mc-bNy"/>
+                        <outlet property="tableView" destination="N77-MB-aoQ" id="5rL-gK-8y6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nwb-p0-GxT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1586.9565217391305" y="118.52678571428571"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ovr-wo-fmi">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MTk-VQ-AAW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="TxL-QT-cgD">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="XCE-ft-4XG" kind="relationship" relationship="rootViewController" id="y09-ne-UMd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TdK-py-pe9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-126.08695652173914" y="118.52678571428571"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
