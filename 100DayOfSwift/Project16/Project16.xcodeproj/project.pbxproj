@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		263953E12778D3CD00DF6EF6 /* WebKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263953E02778D3CD00DF6EF6 /* WebKitViewController.swift */; };
 		26D49D3E277781D800E1F96F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D49D3D277781D800E1F96F /* AppDelegate.swift */; };
 		26D49D40277781D800E1F96F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D49D3F277781D800E1F96F /* SceneDelegate.swift */; };
 		26D49D42277781D800E1F96F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D49D41277781D800E1F96F /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		263953E02778D3CD00DF6EF6 /* WebKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebKitViewController.swift; sourceTree = "<group>"; };
 		26D49D3A277781D800E1F96F /* Project16.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project16.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26D49D3D277781D800E1F96F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26D49D3F277781D800E1F96F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				26D49D3D277781D800E1F96F /* AppDelegate.swift */,
 				26D49D3F277781D800E1F96F /* SceneDelegate.swift */,
 				26D49D41277781D800E1F96F /* ViewController.swift */,
+				263953E02778D3CD00DF6EF6 /* WebKitViewController.swift */,
 				26D49D512777889B00E1F96F /* Capital.swift */,
 				26D49D43277781D800E1F96F /* Main.storyboard */,
 				26D49D46277781D900E1F96F /* Assets.xcassets */,
@@ -144,6 +147,7 @@
 				26D49D42277781D800E1F96F /* ViewController.swift in Sources */,
 				26D49D3E277781D800E1F96F /* AppDelegate.swift in Sources */,
 				26D49D522777889C00E1F96F /* Capital.swift in Sources */,
+				263953E12778D3CD00DF6EF6 /* WebKitViewController.swift in Sources */,
 				26D49D40277781D800E1F96F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
