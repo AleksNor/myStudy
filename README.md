@@ -3,6 +3,7 @@
 ## Оглавление
 - **[100 Day Of Swift](#100DayOfSwift)**
 - **[SwiftBook](#SwiftBook)**
+- **[SwiftMe Усов В.А.](#SwiftMe)**
 
 
 ## <a id="100DayOfSwift"></a>100 Day Of Swift
@@ -30,17 +31,30 @@
 	- [**Project 10**, Day 42-44](100DayOfSwift/Project10/README.md)
 	- [**Project 11**, Day 45-47](100DayOfSwift/Project11/README.md)
 	- [**Project 12**, Day 48-49](100DayOfSwift/Project12/README.md)
+- **Consolidation V**
+	- [**Milestone: Projects 10-12**,  Day 50](100DayOfSwift/Challenge50)
+- **Images and animation**
+	- [**Project 13**, Day 52-54](100DayOfSwift/Project13)
+	- [**Project 14**, Day 55-56](100DayOfSwift/Project14)
+	- [**Project 15**, Day 57-58](100DayOfSwift/Project15)
+- **Consolidation VI**
+	- [**Milestone: Projects 13-15**,  Day 59](100DayOfSwift/Challenge59)
+- **Maps and bugs**
+	- [**Project 16**, Day 60-61](100DayOfSwift/Project16)
 ## <a id="SwiftBook"></a>SwiftBook
 - **Block #2**
-    - [Home Work #1](swiftbook/Home%20Work%202.1.)
-    - [Home Work #2](swiftbook/Home%20Work%202.2.)
+    - [Home Work #1](swiftbook/Home%20Work%202.1./TrafficLight)
+    - [Home Work #2](swiftbook/Home%20Work%202.2./RGBColorSlider)
     - [Home Work #4](swiftbook/Home%20Work%202.4./LoginApp)
     - [Home Work #6](swiftbook/Home%20Work%202.6./RGBColorSlider)
-    - [Home Work #7](swiftbook/Home%20Work%202.7.//PersonList)
-    - [Home Work #10](swiftbook/Home%20Work%202.2.)
+    - [Home Work #7](swiftbook/Home%20Work%202.7./PersonList)
+    - [Home Work #10](swiftbook/Home%20Work%202.10./covidApi)
+    - [Home Work #13](swiftbook/Home%20Work%202.13./CoreDataDemo/)
 - **Courses**
-    - API
-    - MVVM
+    - [API](swiftbook/Courses/API/Sunny/)
+    - [MVVM](swiftbook/Courses/MVVM)
     - iChat
-    - GCD
-
+    - [GCD](swiftbook/Courses/GCD/GCD)
+## <a id="SwiftMe"></a>SwiftMe Усов В.А.
+- **Book #2**
+    - [RightOnTarget](swiftme/Right%20on%20target/)
