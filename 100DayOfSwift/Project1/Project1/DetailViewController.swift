@@ -10,13 +10,15 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet var imageView: UIImageView!
-    var selctedImage: String?
+    var selectedImage: String?
     var titleImage: String?
     var yNumber: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let imageToLoad = selctedImage {
+        assert(selectedImage != nil)
+        
+        if let imageToLoad = selectedImage {
             imageView.image = UIImage(named: imageToLoad)
         }
         title = titleImage
