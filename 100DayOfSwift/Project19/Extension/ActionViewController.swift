@@ -13,39 +13,75 @@ class ActionViewController: UIViewController {
     
     @IBOutlet var script: UITextView!
     
+    let defaults = UserDefaults.standard
     var pageTitle = ""
     var pageURL = ""
+    var scripts = [String: String]()
+    var scriptText = ""
+    var scriptTitle: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let inputItem = extensionContext?.inputItems.first as? NSExtensionItem {
-            if let itemProvider = inputItem.attachments?.first {
-                itemProvider.loadItem(forTypeIdentifier: kUTTypePropertyList as String) { [weak self] (dict, error) in
-                    guard let itemDictionary = dict as? NSDictionary else { return }
-                    guard let javaScriptValues = itemDictionary[NSExtensionJavaScriptPreprocessingResultsKey] as? NSDictionary else { return }
-                    
-                    self?.pageTitle = javaScriptValues["title"] as? String ?? ""
-                    self?.pageURL = javaScriptValues["URL"] as? String ?? ""
-                    
-                    DispatchQueue.main.async {
-                        self?.title = self?.pageTitle
-                    }
-                }
-            }
-        }
+        let done = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(done))
+        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addAlert))
+        navigationItem.rightBarButtonItems = [done]
+        navigationItem.leftBarButtonItems = [add]
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+        script.text = scriptText
     }
     
     @IBAction func done() {
-        let item = NSExtensionItem()
-            let argument: NSDictionary = ["customJavaScript": script.text]
-            let webDictionary: NSDictionary = [NSExtensionJavaScriptFinalizeArgumentKey: argument]
-            let customJavaScript = NSItemProvider(item: webDictionary, typeIdentifier: kUTTypePropertyList as String)
-            item.attachments = [customJavaScript]
-
-            extensionContext?.completeRequest(returningItems: [item])
+        guard let scriptTitle = scriptTitle  else {
+            let ac = UIAlertController(title: "Save as", message: nil, preferredStyle: .alert)
+            ac.addTextField { textField in
+                textField.placeholder = "JS Name"
+            }
+            ac.addAction(UIAlertAction(title: "Save", style: .default, handler: { [unowned self] _ in
+                guard let text = ac.textFields?.first?.text, text != "" else {
+                    navigationController?.popToRootViewController(animated: true)
+                    return
+                }
+                scripts[text] = script.text ?? ""
+                defaults.set(scripts, forKey: pageURL)
+                navigationController?.popToRootViewController(animated: true)
+            }))
+            present(ac, animated: true)
+            return
+        }
+        
+        let ac = UIAlertController(title: "Save as", message: nil, preferredStyle: .alert)
+        ac.addTextField { textField in
+            textField.placeholder = "JS Name"
+            textField.text = scriptTitle
+        }
+        ac.addAction(UIAlertAction(title: "Save", style: .default, handler: {
+            [unowned self] _ in
+            guard let text = ac.textFields?.first?.text, text != "" else {
+                navigationController?.popToRootViewController(animated: true)
+                return
+            }
+            if text == scriptTitle {
+                scripts[scriptTitle] = script.text ?? ""
+                defaults.set(scripts, forKey: pageURL)
+                navigationController?.popToRootViewController(animated: true)
+                return
+            }
+            scripts[text] = script.text ?? ""
+            scripts.removeValue(forKey: scriptTitle)
+            defaults.set(scripts, forKey: pageURL)
+            navigationController?.popToRootViewController(animated: true)
+        }))
+        present(ac, animated: true)
+    }
+    
+    @objc func addAlert() {
+        let ac = UIAlertController(title: "Choose JS code snippet", message: nil, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "Show alert", style: .default, handler: { [weak self] _ in
+            self?.script.text = "alert(document.title);"
+            self?.done()
+        }))
+        present(ac, animated: true)
     }
     
 }
