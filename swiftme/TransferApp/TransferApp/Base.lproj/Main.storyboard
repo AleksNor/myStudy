@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WWV-fi-djE">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Сцена А-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="TransferApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNA-BL-6cT">
+                                <rect key="frame" x="171.5" y="430" width="71" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fV8-y8-Kmx">
+                                <rect key="frame" x="30" y="496" width="354" height="38"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Изменить с помощью свойства">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="editDatawithProperty:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aNT-tz-TiC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="II9-Xg-QF6">
+                                <rect key="frame" x="30" y="564" width="354" height="38"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Изменить с помощью segue">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="qMr-xm-k6K" kind="show" identifier="toEditScreen" id="Cv0-At-trW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N5f-Ik-bEb">
+                                <rect key="frame" x="30" y="632" width="354" height="38"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Изменить с помощью делегата">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="editWithDelegate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ItC-cW-3PZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.79997650960218047" green="0.74568131091501366" blue="0.9632379412651062" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="II9-Xg-QF6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="0sW-sK-Bcd"/>
+                            <constraint firstItem="fV8-y8-Kmx" firstAttribute="top" secondItem="vNA-BL-6cT" secondAttribute="bottom" constant="30" id="Clo-lw-Rcs"/>
+                            <constraint firstItem="N5f-Ik-bEb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="Dtr-JO-iQ1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="N5f-Ik-bEb" secondAttribute="trailing" constant="30" id="Erz-pz-guF"/>
+                            <constraint firstItem="vNA-BL-6cT" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="SG5-C9-gn4"/>
+                            <constraint firstItem="N5f-Ik-bEb" firstAttribute="top" secondItem="II9-Xg-QF6" secondAttribute="bottom" constant="30" id="X33-jj-nTN"/>
+                            <constraint firstItem="fV8-y8-Kmx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="djz-bg-9rd"/>
+                            <constraint firstItem="vNA-BL-6cT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hXW-EB-dmi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="II9-Xg-QF6" secondAttribute="trailing" constant="30" id="iSz-Bk-zAd"/>
+                            <constraint firstItem="II9-Xg-QF6" firstAttribute="top" secondItem="fV8-y8-Kmx" secondAttribute="bottom" constant="30" id="m4q-XP-UTg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fV8-y8-Kmx" secondAttribute="trailing" constant="30" id="q3W-3K-jmO"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Сцена А" largeTitleDisplayMode="always" id="aRa-Te-Xpe"/>
+                    <connections>
+                        <outlet property="dataLabel" destination="vNA-BL-6cT" id="pke-hV-qMD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="928.98550724637687" y="79.6875"/>
+        </scene>
+        <!--Сцена Б-->
+        <scene sceneID="R9I-Dg-Brp">
+            <objects>
+                <viewController storyboardIdentifier="SecondViewController" id="qMr-xm-k6K" customClass="SecondViewController" customModule="TransferApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o7T-2S-04w">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tp9-As-eSR">
+                                <rect key="frame" x="30" y="495" width="354" height="38"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Сохранить с помощью свойства">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="saveDataWithProperty:" destination="qMr-xm-k6K" eventType="touchUpInside" id="Fpy-yn-wcp"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uTN-VG-Snb">
+                                <rect key="frame" x="30" y="431" width="354" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="syk-qk-tHq">
+                                <rect key="frame" x="30" y="563" width="354" height="38"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Сохранить с помощью unwind">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="oQh-2b-X5j" kind="unwind" identifier="toFirstScreen" unwindAction="unwindToFirstScreen:" id="1BO-TN-LON"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iLj-i8-r2d">
+                                <rect key="frame" x="30" y="631" width="354" height="38"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Сохранить с помощью делегата">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="saveDataWithDelegate:" destination="qMr-xm-k6K" eventType="touchUpInside" id="g9z-k9-5Ux"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="YLc-IZ-OQh"/>
+                        <color key="backgroundColor" red="0.6378821994189261" green="1" blue="0.49608289825819585" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="uTN-VG-Snb" firstAttribute="leading" secondItem="YLc-IZ-OQh" secondAttribute="leading" constant="30" id="8Jv-t7-3xP"/>
+                            <constraint firstItem="syk-qk-tHq" firstAttribute="leading" secondItem="YLc-IZ-OQh" secondAttribute="leading" constant="30" id="8Ti-MM-eYd"/>
+                            <constraint firstItem="iLj-i8-r2d" firstAttribute="leading" secondItem="YLc-IZ-OQh" secondAttribute="leading" constant="30" id="AXy-30-uyJ"/>
+                            <constraint firstItem="YLc-IZ-OQh" firstAttribute="trailing" secondItem="syk-qk-tHq" secondAttribute="trailing" constant="30" id="CRl-OZ-ASS"/>
+                            <constraint firstItem="uTN-VG-Snb" firstAttribute="centerY" secondItem="o7T-2S-04w" secondAttribute="centerY" id="Fig-1z-3Ul"/>
+                            <constraint firstItem="YLc-IZ-OQh" firstAttribute="trailing" secondItem="uTN-VG-Snb" secondAttribute="trailing" constant="30" id="MvA-zp-3rm"/>
+                            <constraint firstItem="YLc-IZ-OQh" firstAttribute="trailing" secondItem="iLj-i8-r2d" secondAttribute="trailing" constant="30" id="VVo-HD-254"/>
+                            <constraint firstItem="YLc-IZ-OQh" firstAttribute="trailing" secondItem="tp9-As-eSR" secondAttribute="trailing" constant="30" id="Yb9-vf-92w"/>
+                            <constraint firstItem="tp9-As-eSR" firstAttribute="top" secondItem="uTN-VG-Snb" secondAttribute="bottom" constant="30" id="hKw-Go-NcA"/>
+                            <constraint firstItem="iLj-i8-r2d" firstAttribute="top" secondItem="syk-qk-tHq" secondAttribute="bottom" constant="30" id="lI7-qI-v8g"/>
+                            <constraint firstItem="tp9-As-eSR" firstAttribute="leading" secondItem="YLc-IZ-OQh" secondAttribute="leading" constant="30" id="qAb-Rq-g2k"/>
+                            <constraint firstItem="syk-qk-tHq" firstAttribute="top" secondItem="tp9-As-eSR" secondAttribute="bottom" constant="30" id="yIL-vD-f5j"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Сцена Б" id="SOO-lT-AQ8"/>
+                    <connections>
+                        <outlet property="dataTextField" destination="uTN-VG-Snb" id="5Zz-H1-cIG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TYc-wj-jWn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="oQh-2b-X5j" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1874" y="80"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Dk9-KF-QlW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WWV-fi-djE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Hfe-hC-cfx">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="U5k-XK-qT9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ii3-qW-0xp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="79.6875"/>
+        </scene>
+    </scenes>
+</document>
