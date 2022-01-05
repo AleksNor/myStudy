@@ -12,16 +12,26 @@ class GameScene: SKScene {
     
     var gameTimer: Timer?
     var fireworks = [SKNode]()
+    var scoreLabel: SKLabelNode!
+    var roundsLabel: SKLabelNode!
+    var gameOver: SKLabelNode!
 
     let leftEdge = -22
     let bottomEdge = -22
     let rightEdge = 1024 + 22
+    var isGameOver = false
 
     var score = 0 {
         didSet {
-            // your code here
+            scoreLabel.text = "Score: \(score)"
         }
     }
+    var rounds = 10 {
+        didSet {
+            roundsLabel.text = "Rounds left: \(rounds)"
+        }
+    }
+    
     
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "background")
@@ -30,10 +40,43 @@ class GameScene: SKScene {
         background.blendMode = .replace
         addChild(background)
         
+        scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
+        scoreLabel.text = "Score: 0"
+        scoreLabel.position = CGPoint(x: 40, y: 20)
+        scoreLabel.fontSize = 32
+        scoreLabel.zPosition = 1
+        scoreLabel.horizontalAlignmentMode = .left
+        addChild(scoreLabel)
+        
+        roundsLabel = SKLabelNode(fontNamed: "Chalkduster")
+        roundsLabel.text = "Rounds left: 10"
+        roundsLabel.fontSize = 32
+        roundsLabel.position = CGPoint(x: 40, y: 60)
+        roundsLabel.zPosition = 1
+        roundsLabel.horizontalAlignmentMode = .left
+        addChild(roundsLabel)
+        
+        gameOver = SKLabelNode(fontNamed: "Chalkduster")
+        gameOver.text = "GAME OVER"
+        gameOver.fontSize = 55
+        gameOver.position = CGPoint(x: 512, y: 354)
+        gameOver.horizontalAlignmentMode = .center
+        gameOver.zPosition = 1
+        
         gameTimer = Timer.scheduledTimer(timeInterval: 6, target: self, selector: #selector(launchFireworks), userInfo: nil, repeats: true)
     }
     
     @objc func launchFireworks() {
+        guard rounds != 0 else {
+            gameTimer?.invalidate()
+            scoreLabel.position = CGPoint(x: 512, y: 310)
+            scoreLabel.horizontalAlignmentMode = .center
+            
+            addChild(gameOver)
+            
+            isGameOver = true
+            return
+        }
         let movementAmount: CGFloat = 1800
 
         switch Int.random(in: 0...3) {
@@ -72,6 +115,7 @@ class GameScene: SKScene {
         default:
             break
         }
+        rounds -= 1
     }
     
     func createFirework(xMovement: CGFloat, x: Int, y: Int) {
@@ -135,6 +179,16 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard !isGameOver else {
+            gameOver.removeFromParent()
+            scoreLabel.position = CGPoint(x: 40, y: 20)
+            scoreLabel.horizontalAlignmentMode = .left
+            isGameOver = false
+            score = 0
+            rounds = 10
+            gameTimer = Timer.scheduledTimer(timeInterval: 6, target: self, selector: #selector(launchFireworks), userInfo: nil, repeats: true)
+            return
+        }
         super.touchesBegan(touches, with: event)
         checkTouches(touches)
     }
@@ -153,4 +207,49 @@ class GameScene: SKScene {
             }
         }
     }
+    
+    func explode(firework: SKNode) {
+        if let emitter = SKEmitterNode(fileNamed: "explode") {
+            emitter.position = firework.position
+            addChild(emitter)
+            let duration = SKAction.wait(forDuration: 2)
+            let remove = SKAction.removeFromParent()
+            emitter.run(duration) {
+                emitter.run(remove)
+            }
+        }
+        firework.removeFromParent()
+    }
+    
+    func explodeFireworks() {
+        var numExploded = 0
+
+        for (index, fireworkContainer) in fireworks.enumerated().reversed() {
+            guard let firework = fireworkContainer.children.first as? SKSpriteNode else { continue }
+
+            if firework.name == "selected" {
+                // destroy this firework!
+                explode(firework: fireworkContainer)
+                fireworks.remove(at: index)
+                numExploded += 1
+            }
+        }
+
+        switch numExploded {
+        case 0:
+            // nothing – rubbish!
+            break
+        case 1:
+            score += 200
+        case 2:
+            score += 500
+        case 3:
+            score += 1500
+        case 4:
+            score += 2500
+        default:
+            score += 4000
+        }
+    }
 }
+ 
