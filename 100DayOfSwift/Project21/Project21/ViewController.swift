@@ -54,9 +54,10 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     content.sound = UNNotificationSound.default
     
     var dateComponents = DateComponents()
+    dateComponents.weekday = 8
     dateComponents.hour = 10
     dateComponents.minute = 30
-//    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+    //    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
     let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
     
     let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
@@ -66,13 +67,14 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
   
   ///Register notification categories
   private func registerCategories() {
-      let center = UNUserNotificationCenter.current()
-      center.delegate = self
-
-      let show = UNNotificationAction(identifier: "show", title: "Tell me more…", options: .foreground)
-      let category = UNNotificationCategory(identifier: "alarm", actions: [show], intentIdentifiers: [])
-
-      center.setNotificationCategories([category])
+    let center = UNUserNotificationCenter.current()
+    center.delegate = self
+    
+    let show = UNNotificationAction(identifier: "show", title: "Tell me more…", options: .foreground)
+    let remindMeLater = UNNotificationAction(identifier: "remindMeLater", title: "Remind me later", options: .destructive)
+    let category = UNNotificationCategory(identifier: "alarm", actions: [show, remindMeLater], intentIdentifiers: [])
+    
+    center.setNotificationCategories([category])
   }
   
   // MARK: - Public functions
@@ -80,27 +82,33 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
   func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
     // pull out the buried userInfo dictionary
     let userInfo = response.notification.request.content.userInfo
-
+    
     if let customData = userInfo["customData"] as? String {
-        print("Custom data received: \(customData)")
-
-        switch response.actionIdentifier {
-        case UNNotificationDefaultActionIdentifier:
-            // the user swiped to unlock
-            print("Default identifier")
-
-        case "show":
-            // the user tapped our "show more info…" button
-            print("Show more information…")
-
-        default:
-            break
-        }
+      print("Custom data received: \(customData)")
+      
+      switch response.actionIdentifier {
+      case UNNotificationDefaultActionIdentifier:
+        // the user swiped to unlock
+        print("Default identifier")
+        let ac = UIAlertController(title: "Default", message: "Default identifier", preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
+      case "show":
+        // the user tapped our "show more info…" button
+        print("Show more information…")
+        let ac = UIAlertController(title: "SHOW", message: "Show more information…?", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
+      case "remindMeLater":
+        scheduleLocal()
+      default:
+        break
+      }
     }
-
+    
     // you must call the completion handler when you're done
     completionHandler()
-}
+  }
   
 }
 
