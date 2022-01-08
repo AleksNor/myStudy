@@ -16,21 +16,14 @@ class MainViewController: UITableViewController {
   // MARK: - Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil") ?? UIImage(),
-                                                        style: .done,
-                                                        target: self,
-                                                        action: #selector(addNote))
-    title = "Notes"
-    let navBarAppearance = UINavigationBarAppearance()
-    navBarAppearance.configureWithOpaqueBackground()
-    navBarAppearance.backgroundColor = #colorLiteral(red: 1, green: 0.9877350926, blue: 0.9361338019, alpha: 1)
-    navigationController?.navigationBar.standardAppearance = navBarAppearance
-    navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+    setupNavigationController()
   }
   
   override func viewWillAppear(_ animated: Bool) {
     notes = StorageManager.shared.fetchData()
+    notes.sort {
+      $0.name > $1.name
+    }
     tableView.reloadData()
   }
   
@@ -41,7 +34,7 @@ class MainViewController: UITableViewController {
       textField.placeholder = "Name"
     }
     ac.addAction(UIAlertAction(title: "Add", style: .default, handler: { [weak self] _ in
-      guard let noteName = ac.textFields?.first?.text else {
+      guard let noteName = ac.textFields?.first?.text, noteName != "" else {
         return
       }
       let note = Note(name: noteName, text: "")
@@ -51,6 +44,26 @@ class MainViewController: UITableViewController {
     }))
     ac.addAction(UIAlertAction(title: "Cancel", style: .destructive))
     present(ac, animated: true)
+  }
+  
+  private func setupNavigationController() {
+    title = "Notes"
+    let navBarAppearance = UINavigationBarAppearance()
+    navBarAppearance.configureWithOpaqueBackground()
+    navBarAppearance.backgroundColor = #colorLiteral(red: 0.9882352941, green: 0.9882352941, blue: 1, alpha: 1)
+    navigationController?.navigationBar.standardAppearance = navBarAppearance
+    navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+    navigationController?.isToolbarHidden = false
+    navigationController?.toolbar.tintColor = #colorLiteral(red: 1, green: 0.7620360255, blue: 0, alpha: 1)
+    
+    let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+    let add = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil") ?? UIImage(),
+                              style: .done,
+                              target: self,
+                              action: #selector(addNote))
+    
+
+    toolbarItems = [spacer, add]
   }
   
   // MARK: - TableViewDataSource
@@ -72,6 +85,8 @@ class MainViewController: UITableViewController {
     var configurator = cell.defaultContentConfiguration()
     configurator.text = notes[indexPath.row].name
     cell.contentConfiguration = configurator
+    cell.contentView.layer.cornerRadius = 5
+    cell.contentView.layer.masksToBounds = true
   }
   
   // MARK: - TableViewDelegate
