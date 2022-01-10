@@ -41,6 +41,22 @@
 	- [**Milestone: Projects 13-15**,  Day 59](100DayOfSwift/Challenge59)
 - **Maps and bugs**
 	- [**Project 16**, Day 60-61](100DayOfSwift/Project16)
+	- [**Project 17**, Day 62-63](100DayOfSwift/Project17)
+	- [**Project 18**, Day 64-65](100DayOfSwift/Project18)
+- **Consolidation VII**
+	- [**Milestone: Projects 16-18**,  Day 66](100DayOfSwift/Challenge66)
+- **Leveling up**
+	- [**Project 19**, Day 67-69](100DayOfSwift/Project19)
+	- [**Project 20**, Day 70-71](100DayOfSwift/Project20)
+	- [**Project 21**, Day 72-73](100DayOfSwift/Project21)
+- **Consolidation VIII**
+	- [**Milestone: Projects 19-21**,  Day 74](100DayOfSwift/Challenge74)
+- **Beacons and bombs**
+	- [**Project 22**, Day 75-76](100DayOfSwift/Project22)
+	- **Project 23**, Day 77-78
+	- **Project 24**, Day 79-81
+- **Consolidation IX**
+	- **Milestone: Projects 22-24**,  Day 82
 ## <a id="SwiftBook"></a>SwiftBook
 - **Block #2**
     - [Home Work #1](swiftbook/Home%20Work%202.1./TrafficLight)
@@ -50,6 +66,8 @@
     - [Home Work #7](swiftbook/Home%20Work%202.7./PersonList)
     - [Home Work #10](swiftbook/Home%20Work%202.10./covidApi)
     - [Home Work #13](swiftbook/Home%20Work%202.13./CoreDataDemo/)
+- **Block #4**
+    - [VIPER](swiftbook/5VIPER/)
 - **Courses**
     - [API](swiftbook/Courses/API/Sunny/)
     - [MVVM](swiftbook/Courses/MVVM)
@@ -58,3 +76,7 @@
 ## <a id="SwiftMe"></a>SwiftMe Усов В.А.
 - **Book #2**
     - [RightOnTarget](swiftme/Right%20on%20target/)
+    - [TransferApp](swiftme/TransferApp/)
+    - [NavigationApp](swiftme/NavigationApp/)
+    - [Contacts](swiftme/Contacts/)
+    - [To-Do Manager](swiftme/To-Do%20Manager/)
