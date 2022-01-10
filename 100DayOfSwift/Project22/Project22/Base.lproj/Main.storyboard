@@ -22,16 +22,37 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UUID" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hnO-N6-eqO">
+                                <rect key="frame" x="16" y="504" width="382" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fn8-LV-1U0">
+                                <rect key="frame" x="79" y="128" width="256" height="256"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="256" id="Ab6-0h-mXX"/>
+                                    <constraint firstAttribute="height" constant="256" id="fsO-Pm-fky"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="5Hd-Bj-fyF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="30H-q2-5bt"/>
+                            <constraint firstItem="5Hd-Bj-fyF" firstAttribute="top" secondItem="fn8-LV-1U0" secondAttribute="bottom" constant="40" id="3rv-uf-lQM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hnO-N6-eqO" secondAttribute="trailing" constant="16" id="8xW-Sf-OSn"/>
+                            <constraint firstItem="hnO-N6-eqO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="EkR-3p-Q7t"/>
                             <constraint firstItem="5Hd-Bj-fyF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="L8U-BX-zFC"/>
+                            <constraint firstItem="hnO-N6-eqO" firstAttribute="top" secondItem="5Hd-Bj-fyF" secondAttribute="bottom" constant="32" id="dNc-yZ-bnq"/>
+                            <constraint firstItem="fn8-LV-1U0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eZV-JH-Kel"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="circle" destination="fn8-LV-1U0" id="0Fu-Ef-zOM"/>
                         <outlet property="distanceReading" destination="5Hd-Bj-fyF" id="cla-Sl-Exc"/>
+                        <outlet property="uuidLabel" destination="hnO-N6-eqO" id="tDl-no-hfU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -42,6 +63,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
