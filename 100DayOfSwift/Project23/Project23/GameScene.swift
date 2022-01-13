@@ -148,23 +148,19 @@ class GameScene: SKScene {
     }
     
     if enemyType == 0 {
-      // 1
       enemy = SKSpriteNode()
       enemy.zPosition = 1
       enemy.name = "bombContainer"
       
-      // 2
       let bombImage = SKSpriteNode(imageNamed: "sliceBomb")
       bombImage.name = "bomb"
       enemy.addChild(bombImage)
       
-      // 3
       if bombSoundEffect != nil {
         bombSoundEffect?.stop()
         bombSoundEffect = nil
       }
       
-      // 4
       if let path = Bundle.main.url(forResource: "sliceBombFuse", withExtension: "caf") {
         if let sound = try?  AVAudioPlayer(contentsOf: path) {
           bombSoundEffect = sound
@@ -172,7 +168,6 @@ class GameScene: SKScene {
         }
       }
       
-      // 5
       if let emitter = SKEmitterNode(fileNamed: "sliceFuse") {
         emitter.position = CGPoint(x: 76, y: 64)
         enemy.addChild(emitter)
@@ -296,6 +291,11 @@ class GameScene: SKScene {
     if isGameEnded {
       return
     }
+    let gameOver = SKLabelNode(fontNamed: "Chalkduster")
+    gameOver.text = "GAME OVER"
+    gameOver.position = CGPoint(x: 512, y: 368)
+    gameOver.zPosition = 3
+    addChild(gameOver)
     
     isGameEnded = true
     physicsWorld.speed = 0
