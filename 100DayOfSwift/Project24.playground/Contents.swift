@@ -12,6 +12,10 @@ extension String {
   }
 }
 
+let indexName = name.index(name.startIndex, offsetBy: 2)
+let indexBefore = name.index(before: name.endIndex)
+name[indexName]
+name[indexBefore]
 name[2]
 
 let password = "12345"
@@ -42,6 +46,8 @@ extension String {
     }
 }
 
+weather.capitalizedFirst
+
 let string = "This is a test string"
 let attributes: [NSAttributedString.Key: Any] = [
     .foregroundColor: UIColor.white,
@@ -58,3 +64,52 @@ attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 24), range
 attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 32), range: NSRange(location: 10, length: 4))
 attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 40), range: NSRange(location: 15, length: 6))
 
+
+//Create a String extension that adds a withPrefix() method. If the string already contains the prefix it should return itself; if it doesn’t contain the prefix, it should return itself with the prefix added. For example: "pet".withPrefix("car") should return “carpet”.
+
+extension String {
+  func withPrefix(_ prefix: String) -> String {
+    guard self.hasPrefix(prefix) else {
+      return prefix + self
+    }
+    return self
+  }
+}
+
+let pet = "pet"
+pet.withPrefix("car")
+pet.withPrefix("pet")
+
+
+//Create a String extension that adds an isNumeric property that returns true if the string holds any sort of number. Tip: creating a Double from a String is a failable initializer.
+
+extension String {
+  func isNumeric() -> Bool {
+    for i in Array(self) {
+      if let _ = Int(String(i)) {
+        return true
+      }
+    }
+    return false
+  }
+}
+
+let nuuuum = "2 pac"
+
+pet.isNumeric()
+nuuuum.isNumeric()
+
+//Create a String extension that adds a lines property that returns an array of all the lines in a string. So, “this\nis\na\ntest” should return an array with four elements.
+
+extension String {
+  func arrayFromEveryLine() -> Array<String> {
+    return self.components(separatedBy: "\n")
+  }
+}
+
+
+let testString = "this\nis\na\ntest"
+
+let array = testString.arrayFromEveryLine()
+array[2]
+print(testString.arrayFromEveryLine())
