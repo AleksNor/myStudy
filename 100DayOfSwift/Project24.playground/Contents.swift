@@ -113,3 +113,41 @@ let testString = "this\nis\na\ntest"
 let array = testString.arrayFromEveryLine()
 array[2]
 print(testString.arrayFromEveryLine())
+
+extension UIView {
+  func bounceOut(duration: TimeInterval) {
+    UIView.animate(withDuration: duration) { [unowned self] in
+      self.transform = CGAffineTransform(scaleX: 0.0001, y: 0.0001)
+    }
+    
+  }
+}
+
+let view = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+view.backgroundColor = .red
+view.bounceOut(duration: 3)
+
+extension Int {
+  func times(completion: @escaping() -> (Void)) {
+    var count = UInt(self)
+    while count != 0 {
+      completion()
+      count -= 1
+    }
+  }
+}
+
+5.times {
+  print("Hello world")
+}
+
+extension Array where Element: Comparable {
+  mutating func remove(item: Element) {
+    if let index = self.firstIndex(of: item) {
+      self.remove(at: index)
+    }
+  }
+}
+
+var arrayInt = [5, 5, 3 ,2]
+arrayInt.remove(item: 5)
