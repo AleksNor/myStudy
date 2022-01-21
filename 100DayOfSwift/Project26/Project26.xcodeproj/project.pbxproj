@@ -15,6 +15,7 @@
 		26862D962798618F001EEFFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26862D952798618F001EEFFA /* Assets.xcassets */; };
 		26862D992798618F001EEFFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26862D972798618F001EEFFA /* LaunchScreen.storyboard */; };
 		26862DA027986AD6001EEFFA /* level1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 26862D9F27986AD6001EEFFA /* level1.txt */; };
+		26862DFF279AFEC6001EEFFA /* level2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 26862DFE279AFEC6001EEFFA /* level2.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		26862D952798618F001EEFFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26862D982798618F001EEFFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26862D9F27986AD6001EEFFA /* level1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = level1.txt; path = Content/level1.txt; sourceTree = "<group>"; };
+		26862DFE279AFEC6001EEFFA /* level2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = level2.txt; path = Content/level2.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				26862D952798618F001EEFFA /* Assets.xcassets */,
 				26862D972798618F001EEFFA /* LaunchScreen.storyboard */,
 				26862D9F27986AD6001EEFFA /* level1.txt */,
+				26862DFE279AFEC6001EEFFA /* level2.txt */,
 			);
 			path = Project26;
 			sourceTree = "<group>";
@@ -131,6 +134,7 @@
 			files = (
 				26862DA027986AD6001EEFFA /* level1.txt in Resources */,
 				26862D942798618D001EEFFA /* Main.storyboard in Resources */,
+				26862DFF279AFEC6001EEFFA /* level2.txt in Resources */,
 				26862D8B2798618D001EEFFA /* GameScene.sks in Resources */,
 				26862D962798618F001EEFFA /* Assets.xcassets in Resources */,
 				26862D992798618F001EEFFA /* LaunchScreen.storyboard in Resources */,
