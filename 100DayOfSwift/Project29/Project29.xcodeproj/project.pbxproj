@@ -15,6 +15,9 @@
 		26CD88A627A461DF0033E26F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26CD88A527A461DF0033E26F /* Assets.xcassets */; };
 		26CD88A927A461DF0033E26F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26CD88A727A461DF0033E26F /* LaunchScreen.storyboard */; };
 		26CD88B027A4625A0033E26F /* BuildingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CD88AF27A4625A0033E26F /* BuildingNode.swift */; };
+		26CD88B427A5A6B20033E26F /* hitPlayer.sks in Resources */ = {isa = PBXBuildFile; fileRef = 26CD88B127A5A6B20033E26F /* hitPlayer.sks */; };
+		26CD88B527A5A6B20033E26F /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 26CD88B227A5A6B20033E26F /* spark.png */; };
+		26CD88B627A5A6B20033E26F /* hitBuilding.sks in Resources */ = {isa = PBXBuildFile; fileRef = 26CD88B327A5A6B20033E26F /* hitBuilding.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,9 @@
 		26CD88A527A461DF0033E26F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26CD88A827A461DF0033E26F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26CD88AF27A4625A0033E26F /* BuildingNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingNode.swift; sourceTree = "<group>"; };
+		26CD88B127A5A6B20033E26F /* hitPlayer.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = hitPlayer.sks; sourceTree = "<group>"; };
+		26CD88B227A5A6B20033E26F /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		26CD88B327A5A6B20033E26F /* hitBuilding.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = hitBuilding.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +73,9 @@
 				26CD88A227A461DE0033E26F /* Main.storyboard */,
 				26CD88A527A461DF0033E26F /* Assets.xcassets */,
 				26CD88A727A461DF0033E26F /* LaunchScreen.storyboard */,
+				26CD88B327A5A6B20033E26F /* hitBuilding.sks */,
+				26CD88B127A5A6B20033E26F /* hitPlayer.sks */,
+				26CD88B227A5A6B20033E26F /* spark.png */,
 			);
 			path = Project29;
 			sourceTree = "<group>";
@@ -130,7 +139,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				26CD88A427A461DE0033E26F /* Main.storyboard in Resources */,
+				26CD88B527A5A6B20033E26F /* spark.png in Resources */,
 				26CD889B27A461DE0033E26F /* GameScene.sks in Resources */,
+				26CD88B627A5A6B20033E26F /* hitBuilding.sks in Resources */,
+				26CD88B427A5A6B20033E26F /* hitPlayer.sks in Resources */,
 				26CD88A627A461DF0033E26F /* Assets.xcassets in Resources */,
 				26CD88A927A461DF0033E26F /* LaunchScreen.storyboard in Resources */,
 			);
