@@ -18,6 +18,21 @@ class GameViewController: UIViewController {
   @IBOutlet var launchButton: UIButton!
   @IBOutlet var playerNumber: UILabel!
   
+  @IBOutlet var onePlayerScore: UILabel!
+  @IBOutlet var twoPlayerScore: UILabel!
+  
+  var oneScore = 0 {
+    didSet {
+      onePlayerScore.text = "Score: \(oneScore)"
+    }
+  }
+  
+  var twoScore = 0 {
+    didSet {
+      twoPlayerScore.text = "Score: \(twoScore)"
+    }
+  }
+  
   var currentGame: GameScene!
 
     override func viewDidLoad() {
@@ -63,11 +78,11 @@ class GameViewController: UIViewController {
         return true
     }
   
-  @IBAction func angleChanged(_ sender: Any) {
+  @IBAction func angleChanged(_ sender: UISlider) {
       angleLabel.text = "Angle: \(Int(angleSlider.value))°"
   }
 
-  @IBAction func velocityChanged(_ sender: Any) {
+  @IBAction func velocityChanged(_ sender: UISlider) {
       velocityLabel.text = "Velocity: \(Int(velocitySlider.value))"
   }
   
