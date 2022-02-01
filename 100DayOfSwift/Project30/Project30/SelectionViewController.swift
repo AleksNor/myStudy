@@ -10,8 +10,8 @@ import UIKit
 
 class SelectionViewController: UITableViewController {
   var items = [String]() // this is the array that will store the filenames to load
-  var viewControllers = [UIViewController]() // create a cache of the detail view controllers for faster loading
   var dirty = false
+
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -25,11 +25,9 @@ class SelectionViewController: UITableViewController {
     let fm = FileManager.default
     
     if let tempItems = try? fm.contentsOfDirectory(atPath: Bundle.main.resourcePath!) {
-      for item in tempItems {
-        if item.range(of: "Large") != nil {
-          items.append(item)
+        loadImages(wit: tempItems) { [unowned self] in
+          tableView.reloadData()
         }
-      }
     }
   }
   
@@ -39,6 +37,19 @@ class SelectionViewController: UITableViewController {
     if dirty {
       // we've been marked as needing a counter reload, so reload the whole table
       tableView.reloadData()
+    }
+  }
+  
+  // MARK: - Private functions
+  private func loadImages(wit items: [String], completion: @escaping () -> Void) {
+    for item in items {
+      if item.range(of: "Large") != nil {
+        let imageRootName = item.replacingOccurrences(of: "Large", with: "Thumb")
+        self.items.append(imageRootName)
+      }
+    }
+    DispatchQueue.main.async {
+      completion()
     }
   }
   
@@ -60,17 +71,15 @@ class SelectionViewController: UITableViewController {
     
     // find the image for this cell, and load its thumbnail
     let currentImage = items[indexPath.row % items.count]
-    let imageRootName = currentImage.replacingOccurrences(of: "Large", with: "Thumb")
-    let path = Bundle.main.path(forResource: imageRootName, ofType: nil)!
-    let original = UIImage(contentsOfFile: path)!
-    
+    let path = Bundle.main.path(forResource: currentImage, ofType: nil)!
+    let original = UIImage(contentsOfFile: path) ?? UIImage()
+
     let renderRect = CGRect(origin: .zero, size: CGSize(width: 90, height: 90))
     let renderer = UIGraphicsImageRenderer(size: renderRect.size)
-    
+
     let rounded = renderer.image { ctx in
       ctx.cgContext.addEllipse(in: renderRect)
       ctx.cgContext.clip()
-      
       original.draw(in: renderRect)
     }
     
@@ -99,7 +108,6 @@ class SelectionViewController: UITableViewController {
     dirty = false
     
     // add to our view controller cache and show
-    viewControllers.append(vc)
     navigationController!.pushViewController(vc, animated: true)
   }
 }
