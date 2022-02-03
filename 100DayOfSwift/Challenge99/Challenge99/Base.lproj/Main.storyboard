@@ -137,22 +137,38 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Touches: 0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yd6-93-d6q">
-                                <rect key="frame" x="138" y="785.5" width="139" height="26.5"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="20" verticalHuggingPriority="251" text="Touches: 0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yd6-93-d6q">
+                                <rect key="frame" x="20" y="783" width="113" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZj-0e-vNZ">
+                                <rect key="frame" x="246.5" y="751" width="147.5" height="92"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="92" id="kRD-Hy-wHa"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="RESTART">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="restartGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c4f-7b-mOn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gZj-0e-vNZ" secondAttribute="trailing" constant="20" id="0ss-RG-ozB"/>
                             <constraint firstItem="3CL-4U-xdX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="AO0-TD-xFt"/>
                             <constraint firstItem="3CL-4U-xdX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="GYa-x2-GVu"/>
-                            <constraint firstItem="Yd6-93-d6q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="138" id="ZV9-ZQ-pxP"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Yd6-93-d6q" secondAttribute="trailing" constant="137" id="bNk-fe-34B"/>
+                            <constraint firstItem="gZj-0e-vNZ" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Yd6-93-d6q" secondAttribute="trailing" constant="132" id="KoT-5s-mgK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gZj-0e-vNZ" secondAttribute="bottom" constant="19" id="ax0-7r-ohn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Yd6-93-d6q" secondAttribute="bottom" constant="50" id="khj-NR-mqP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3CL-4U-xdX" secondAttribute="trailing" constant="20" id="qre-iS-ime"/>
+                            <constraint firstItem="Yd6-93-d6q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="xuF-UP-Co9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Concentration" id="xfq-tM-b9D"/>
@@ -196,6 +212,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

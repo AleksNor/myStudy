@@ -11,12 +11,6 @@ struct Card {
   static var identifierNumber: String {
     emojiCollection.randomElement() ?? "🎃"
   }
-//  static func identifierGenerator() -> Int {
-//    emojiCollection.randomElement()
-//    identifierNumber += 1
-//    return identifierNumber
-//  }
-  
   static let emojiCollection = ["👇🏼", "🖖", "🎃", "😺", "🦷", "💋", "🦷", "💋", "👇🏼", "🖖", "🎃", "😺", "👮🏻‍♂️", "🧑🏻‍🍳", "👮🏻‍♂️", "🧑🏻‍🍳"]
   
   var isFaceUp = false
