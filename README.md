@@ -53,10 +53,23 @@
 	- [**Milestone: Projects 19-21**,  Day 74](100DayOfSwift/Challenge74)
 - **Beacons and bombs**
 	- [**Project 22**, Day 75-76](100DayOfSwift/Project22)
-	- **Project 23**, Day 77-78
-	- **Project 24**, Day 79-81
+	- [**Project 23**, Day 77-78](100DayOfSwift/Project23)
+	- [**Project 24**, Day 79-81](100DayOfSwift/Project24)
 - **Consolidation IX**
 	- **Milestone: Projects 22-24**,  Day 82
+- **Beacons and bombs**
+  - [**Project 25**, Day 83-84](100DayOfSwift/Project25)
+  - [**Project 26**, Day 85-87](100DayOfSwift/Project26)
+  - [**Project 27**, Day 88-89](100DayOfSwift/Project27)
+- **Consolidation IX**
+  - [**Milestone: Projects 25-27**,  Day 90](100DayOfSwift/Challenge90)
+  - **Core Graphics redux**,  Day 91
+- **Beacons and bombs**
+  - [**Project 28**, Day 92-93](100DayOfSwift/Project28)
+  - [**Project 29**, Day 94-96](100DayOfSwift/Project29)
+  - [**Project 30**, Day 97-98](100DayOfSwift/Project30)
+- **Consolidation IX**
+  - [**Milestone: Projects 28-30**,  Day 99](100DayOfSwift/Challenge99)
 ## <a id="SwiftBook"></a>SwiftBook
 - **Block #2**
     - [Home Work #1](swiftbook/Home%20Work%202.1./TrafficLight)
